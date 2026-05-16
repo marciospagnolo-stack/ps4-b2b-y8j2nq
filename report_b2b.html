@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>PSA B2B — Análise</title><style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+           max-width: 1400px; margin: 2em auto; padding: 0 1em; color: #222; line-height: 1.5; }
+    h1 { border-bottom: 3px solid #7c3aed; padding-bottom: 0.3em; }
+    h2 { margin-top: 2.5em; color: #5b21b6; border-left: 4px solid #7c3aed; padding-left: 0.6em; }
+    .meta { color: #666; font-size: 0.9em; }
+    .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1em; margin: 1em 0; }
+    .kpi { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 1em 1.4em; }
+    .kpi .v { font-size: 1.8em; font-weight: 700; color: #5b21b6; }
+    .kpi .l { color: #666; font-size: 0.85em; text-transform: uppercase; letter-spacing: 0.04em; }
+    .section-intro { background: #faf5ff; border-left: 4px solid #a855f7; padding: 0.8em 1.2em; margin: 1em 0; border-radius: 4px; font-size: 0.95em; }
+    table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.88em; }
+    th { background: #5b21b6; color: white; padding: 0.6em 0.5em; text-align: left; }
+    td { padding: 0.5em; border-bottom: 1px solid #e5e7eb; }
+    tr:nth-child(even) td { background: #faf5ff; }
+    tr.good td { background: #dcfce7 !important; font-weight: 600; }
+    tr.ok td { background: #fef3c7 !important; }
+    tr.bad td { background: #fee2e2 !important; color: #991b1b; }
+    .footnote { color: #666; font-size: 0.85em; border-top: 1px solid #e5e7eb; margin-top: 3em; padding-top: 1em; }
+    </style></head><body>
+
+<h1>🏢 PSA — Análise B2B (Funil Corporativo)</h1>
+<p class="meta">Janela: <strong>2025-01-01</strong> a <strong>2026-05-15</strong>
+   · Gerado em 2026-05-16 20:09</p>
+
+<div class="kpis">
+  <div class="kpi"><div class="v">23,945</div><div class="l">Leads únicos</div></div>
+  <div class="kpi"><div class="v">2,149</div><div class="l">Vendas (WON) — 9.0%</div></div>
+  <div class="kpi"><div class="v">R$ 22.1M</div><div class="l">Comissão PSA</div></div>
+  <div class="kpi"><div class="v">R$ 109.4M</div><div class="l">Total contratos brutos</div></div>
+  <div class="kpi"><div class="v">R$ 922</div><div class="l">R$/lead (comissão)</div></div>
+  <div class="kpi"><div class="v">295</div><div class="l">Em progresso</div></div>
+</div>
+
+<div class="section-intro">
+<strong>Como ler:</strong> "R$/lead" = comissão PSA dividida por leads únicos. "Valor Contratos" = soma do valor bruto que o cliente paga (PSA recebe ~30%). Win rate B2B é menor que B2C (9% vs 14%) mas ticket é gigante.<br>
+<strong>Cores</strong>: <span style="background:#dcfce7;padding:2px 6px">verde</span> R$/lead ≥ R$ 5K ·
+<span style="background:#fef3c7;padding:2px 6px">amarelo</span> R$/lead ≥ R$ 2K ·
+<span style="background:#fee2e2;padding:2px 6px">vermelho</span> R$/lead &lt; R$ 500 (com ≥10 leads)
+</div>
+
+<h2>1. Top Palestrantes (≥10 leads)</h2>
+<div class="section-intro">Performance por palestrante via property <code>palestrante_principal</code>. 60% dos leads não têm palestrante atribuído (qualificação inicial).</div>
+<table>
+<thead><tr>
+<th>palestrante</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>Rubens-Barrichello</strong></td>
+<td><strong>15</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 152,010</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,932,800</td>
+<td style="text-align:right;"><strong>R$ 10,134</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">190d</span> · 2025-11-07</td>
+</tr>
+<tr class="good">
+<td><strong>Gustavo-Loyola</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 142,200</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 335,000</td>
+<td style="text-align:right;"><strong>R$ 8,365</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">78d</span> · 2026-02-27</td>
+</tr>
+<tr class="good">
+<td><strong>Paulo-Guedes</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">11</strong> <span style="color:#dc2626;font-size:0.8em;">(65%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:right;">R$ 112,000</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,300,000</td>
+<td style="text-align:right;"><strong>R$ 6,588</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">102d</span> · 2026-02-03</td>
+</tr>
+<tr class="good">
+<td><strong>Gil-Giardelli</strong></td>
+<td><strong>16</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(31%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">11</strong> <span style="color:#dc2626;font-size:0.8em;">(69%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 86,235</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 308,231</td>
+<td style="text-align:right;"><strong>R$ 5,390</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">71d</span> · 2026-03-06</td>
+</tr>
+<tr class="good">
+<td><strong>Adriana-Barbosa</strong></td>
+<td><strong>21</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(14%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">18</strong> <span style="color:#dc2626;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 110,350</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 325,000</td>
+<td style="text-align:right;"><strong>R$ 5,255</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">249d</span> · 2025-09-09</td>
+</tr>
+<tr class="good">
+<td><strong>Ulisses-Carneiro</strong></td>
+<td><strong>24</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">17</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 122,500</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 390,500</td>
+<td style="text-align:right;"><strong>R$ 5,104</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">52d</span> · 2026-03-25</td>
+</tr>
+<tr class="ok">
+<td><strong>Larissa-Chaves</strong></td>
+<td><strong>27</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">24</strong> <span style="color:#dc2626;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 123,483</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 367,321</td>
+<td style="text-align:right;"><strong>R$ 4,573</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">54d</span> · 2026-03-23</td>
+</tr>
+<tr class="ok">
+<td><strong>Claudia-Alcantara</strong></td>
+<td><strong>11</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(27%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">8</strong> <span style="color:#dc2626;font-size:0.8em;">(73%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 48,650</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 291,000</td>
+<td style="text-align:right;"><strong>R$ 4,423</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">101d</span> · 2026-02-04</td>
+</tr>
+<tr class="ok">
+<td><strong>Paulo-Camargo</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(40%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">5</strong> <span style="color:#dc2626;font-size:0.8em;">(50%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:right;">R$ 42,176</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 367,609</td>
+<td style="text-align:right;"><strong>R$ 4,218</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">101d</span> · 2026-02-04</td>
+</tr>
+<tr class="ok">
+<td><strong>Gustavo-Caetano</strong></td>
+<td><strong>18</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">11</strong> <span style="color:#16a34a;font-size:0.8em;">(61%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(39%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 73,992</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 498,472</td>
+<td style="text-align:right;"><strong>R$ 4,111</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">290d</span> · 2025-07-30</td>
+</tr>
+<tr class="ok">
+<td><strong>Samy-Dana</strong></td>
+<td><strong>13</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(31%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">9</strong> <span style="color:#dc2626;font-size:0.8em;">(69%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 52,602</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 360,048</td>
+<td style="text-align:right;"><strong>R$ 4,046</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">127d</span> · 2026-01-09</td>
+</tr>
+<tr class="ok">
+<td><strong>Fabricio-Carpinejar</strong></td>
+<td><strong>39</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">12</strong> <span style="color:#16a34a;font-size:0.8em;">(31%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">27</strong> <span style="color:#dc2626;font-size:0.8em;">(69%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 144,843</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 744,346</td>
+<td style="text-align:right;"><strong>R$ 3,714</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">75d</span> · 2026-03-02</td>
+</tr>
+<tr class="ok">
+<td><strong>Silvio-Meira</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 62,625</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 358,800</td>
+<td style="text-align:right;"><strong>R$ 3,684</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">107d</span> · 2026-01-29</td>
+</tr>
+<tr class="ok">
+<td><strong>Joel-Jota</strong></td>
+<td><strong>10</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(30%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(70%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 36,300</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 480,000</td>
+<td style="text-align:right;"><strong>R$ 3,630</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">54d</span> · 2026-03-23</td>
+</tr>
+<tr class="ok">
+<td><strong>Marcio-Atalla</strong></td>
+<td><strong>11</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(27%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">8</strong> <span style="color:#dc2626;font-size:0.8em;">(73%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 34,200</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 185,000</td>
+<td style="text-align:right;"><strong>R$ 3,109</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">185d</span> · 2025-11-12</td>
+</tr>
+<tr class="ok">
+<td><strong>Borja-Castelar</strong></td>
+<td><strong>78</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">23</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">55</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 241,502</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 808,469</td>
+<td style="text-align:right;"><strong>R$ 3,096</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">53d</span> · 2026-03-24</td>
+</tr>
+<tr class="ok">
+<td><strong>Felipe-Titto</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">9</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 35,900</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 127,000</td>
+<td style="text-align:right;"><strong>R$ 2,992</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">79d</span> · 2026-02-26</td>
+</tr>
+<tr class="ok">
+<td><strong>Augusto-Cury</strong></td>
+<td><strong>19</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">16</strong> <span style="color:#dc2626;font-size:0.8em;">(84%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 55,799</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 516,000</td>
+<td style="text-align:right;"><strong>R$ 2,937</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">248d</span> · 2025-09-10</td>
+</tr>
+<tr class="ok">
+<td><strong>Carlos-Piazza</strong></td>
+<td><strong>11</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">9</strong> <span style="color:#dc2626;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 32,160</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 112,500</td>
+<td style="text-align:right;"><strong>R$ 2,924</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="ok">
+<td><strong>Jairo-Bouer</strong></td>
+<td><strong>16</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 46,260</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 168,670</td>
+<td style="text-align:right;"><strong>R$ 2,891</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">193d</span> · 2025-11-04</td>
+</tr>
+<tr class="ok">
+<td><strong>Giovane-Gávio</strong></td>
+<td><strong>316</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">63</strong> <span style="color:#16a34a;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">251</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 909,802</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,930,733</td>
+<td style="text-align:right;"><strong>R$ 2,879</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">53d</span> · 2026-03-24</td>
+</tr>
+<tr class="ok">
+<td><strong>Gustavo-Melles</strong></td>
+<td><strong>21</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(38%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">13</strong> <span style="color:#dc2626;font-size:0.8em;">(62%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 59,701</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 155,000</td>
+<td style="text-align:right;"><strong>R$ 2,843</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">206d</span> · 2025-10-22</td>
+</tr>
+<tr class="ok">
+<td><strong>Martha-Gabriel</strong></td>
+<td><strong>24</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">18</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 67,693</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 480,300</td>
+<td style="text-align:right;"><strong>R$ 2,821</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">71d</span> · 2026-03-06</td>
+</tr>
+<tr class="ok">
+<td><strong>Roberto-Padovani</strong></td>
+<td><strong>18</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">14</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 50,412</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 117,680</td>
+<td style="text-align:right;"><strong>R$ 2,801</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">60d</span> · 2026-03-17</td>
+</tr>
+<tr class="ok">
+<td><strong>Walter-Longo</strong></td>
+<td><strong>235</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">39</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">196</strong> <span style="color:#dc2626;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 656,696</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,478,065</td>
+<td style="text-align:right;"><strong>R$ 2,794</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">39d</span> · 2026-04-07</td>
+</tr>
+<tr class="ok">
+<td><strong>Dr.-Drauzio-Varella</strong></td>
+<td><strong>22</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(23%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">17</strong> <span style="color:#dc2626;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 61,227</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 549,500</td>
+<td style="text-align:right;"><strong>R$ 2,783</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">66d</span> · 2026-03-11</td>
+</tr>
+<tr class="ok">
+<td><strong>Tay-Dantas</strong></td>
+<td><strong>52</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">13</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">39</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 144,300</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 490,000</td>
+<td style="text-align:right;"><strong>R$ 2,775</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">229d</span> · 2025-09-29</td>
+</tr>
+<tr class="ok">
+<td><strong>Marcelo-Serrado</strong></td>
+<td><strong>15</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 41,600</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 112,000</td>
+<td style="text-align:right;"><strong>R$ 2,773</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">130d</span> · 2026-01-06</td>
+</tr>
+<tr class="ok">
+<td><strong>Leandro-Karnal</strong></td>
+<td><strong>102</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">22</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">80</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 266,555</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,874,000</td>
+<td style="text-align:right;"><strong>R$ 2,613</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">60d</span> · 2026-03-17</td>
+</tr>
+<tr class="ok">
+<td><strong>Clodoaldo-Silva</strong></td>
+<td><strong>22</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(27%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">16</strong> <span style="color:#dc2626;font-size:0.8em;">(73%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 57,200</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 145,000</td>
+<td style="text-align:right;"><strong>R$ 2,600</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">75d</span> · 2026-03-02</td>
+</tr>
+<tr class="ok">
+<td><strong>Luis-Justo</strong></td>
+<td><strong>70</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">12</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">58</strong> <span style="color:#dc2626;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 179,541</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 945,000</td>
+<td style="text-align:right;"><strong>R$ 2,565</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">65d</span> · 2026-03-12</td>
+</tr>
+<tr class="ok">
+<td><strong>Cafu-</strong></td>
+<td><strong>47</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(13%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">40</strong> <span style="color:#dc2626;font-size:0.8em;">(85%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 119,495</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 514,500</td>
+<td style="text-align:right;"><strong>R$ 2,542</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">53d</span> · 2026-03-24</td>
+</tr>
+<tr class="ok">
+<td><strong>César-Cielo</strong></td>
+<td><strong>14</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">10</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 34,820</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 226,333</td>
+<td style="text-align:right;"><strong>R$ 2,487</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">198d</span> · 2025-10-30</td>
+</tr>
+<tr class="ok">
+<td><strong>Ronaldo-Lemos</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">14</strong> <span style="color:#dc2626;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 42,200</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 224,000</td>
+<td style="text-align:right;"><strong>R$ 2,482</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">106d</span> · 2026-01-30</td>
+</tr>
+<tr class="ok">
+<td><strong>Sergio-Zimerman</strong></td>
+<td><strong>34</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(21%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">27</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 83,030</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 488,000</td>
+<td style="text-align:right;"><strong>R$ 2,442</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">64d</span> · 2026-03-13</td>
+</tr>
+<tr class="ok">
+<td><strong>Luiz-Felipe-Pondé</strong></td>
+<td><strong>57</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">12</strong> <span style="color:#16a34a;font-size:0.8em;">(21%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">45</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 137,814</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 942,250</td>
+<td style="text-align:right;"><strong>R$ 2,418</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">47d</span> · 2026-03-30</td>
+</tr>
+<tr class="ok">
+<td><strong>Geraldo-Rufino</strong></td>
+<td><strong>63</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">13</strong> <span style="color:#16a34a;font-size:0.8em;">(21%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">50</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 151,998</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,188,500</td>
+<td style="text-align:right;"><strong>R$ 2,413</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">99d</span> · 2026-02-06</td>
+</tr>
+<tr class="ok">
+<td><strong>Ricardo-Amorim</strong></td>
+<td><strong>44</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">35</strong> <span style="color:#dc2626;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 103,078</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 920,500</td>
+<td style="text-align:right;"><strong>R$ 2,343</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">53d</span> · 2026-03-24</td>
+</tr>
+<tr class="ok">
+<td><strong>Zeina-Latif</strong></td>
+<td><strong>33</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(21%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">26</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 75,740</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 290,000</td>
+<td style="text-align:right;"><strong>R$ 2,295</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">60d</span> · 2026-03-17</td>
+</tr>
+<tr class="ok">
+<td><strong>Tiago-Lopes</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">10</strong> <span style="color:#dc2626;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 27,300</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 47,000</td>
+<td style="text-align:right;"><strong>R$ 2,275</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">99d</span> · 2026-02-06</td>
+</tr>
+</tbody></table>
+
+<h2>2. Segmento do Cliente Final</h2>
+<div class="section-intro">Setor da empresa que contrata. <strong>Hospitais, Financeiro, Cooperativas, Agro</strong> têm win rate altíssimo. Use pra dirigir prospecção outbound.</div>
+<table>
+<thead><tr>
+<th>segmento</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>Hospitais e Laboratórios</strong></td>
+<td><strong>14</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">12</strong> <span style="color:#16a34a;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:right;">R$ 184,100</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 408,500</td>
+<td style="text-align:right;"><strong>R$ 13,150</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">30d</span> · 2026-04-16</td>
+</tr>
+<tr class="good">
+<td><strong>Serviços Financeiros</strong></td>
+<td><strong>79</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">57</strong> <span style="color:#16a34a;font-size:0.8em;">(72%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">15</strong> <span style="color:#dc2626;font-size:0.8em;">(19%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">7</strong> <span style="color:#d97706;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:right;">R$ 945,930</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,580,482</td>
+<td style="text-align:right;"><strong>R$ 11,974</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Cooperativas</strong></td>
+<td><strong>44</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">34</strong> <span style="color:#16a34a;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">9</strong> <span style="color:#dc2626;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 486,900</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,681,223</td>
+<td style="text-align:right;"><strong>R$ 11,066</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">5d</span> · 2026-05-11</td>
+</tr>
+<tr class="good">
+<td><strong>Consultoria</strong></td>
+<td><strong>30</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">20</strong> <span style="color:#16a34a;font-size:0.8em;">(67%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">4</strong> <span style="color:#d97706;font-size:0.8em;">(13%)</span></td>
+<td style="text-align:right;">R$ 312,980</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 943,650</td>
+<td style="text-align:right;"><strong>R$ 10,433</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Mídia e Comunicação</strong></td>
+<td><strong>28</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">23</strong> <span style="color:#16a34a;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">5</strong> <span style="color:#dc2626;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 271,445</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,113,752</td>
+<td style="text-align:right;"><strong>R$ 9,694</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Produtos Químicos</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(40%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(40%)</span></td>
+<td style="text-align:right;">R$ 44,100</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 219,000</td>
+<td style="text-align:right;"><strong>R$ 8,820</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">19d</span> · 2026-04-27</td>
+</tr>
+<tr class="good">
+<td><strong>Transporte e Logística</strong></td>
+<td><strong>24</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">15</strong> <span style="color:#16a34a;font-size:0.8em;">(62%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 196,596</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 856,750</td>
+<td style="text-align:right;"><strong>R$ 8,191</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="good">
+<td><strong>Promotores de Eventos</strong></td>
+<td><strong>30</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">16</strong> <span style="color:#16a34a;font-size:0.8em;">(53%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">13</strong> <span style="color:#dc2626;font-size:0.8em;">(43%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 238,624</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,269,000</td>
+<td style="text-align:right;"><strong>R$ 7,954</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="good">
+<td><strong>Indústria</strong></td>
+<td><strong>96</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">64</strong> <span style="color:#16a34a;font-size:0.8em;">(67%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">13</strong> <span style="color:#dc2626;font-size:0.8em;">(14%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">19</strong> <span style="color:#d97706;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:right;">R$ 755,269</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,297,750</td>
+<td style="text-align:right;"><strong>R$ 7,867</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>TI e Software</strong></td>
+<td><strong>70</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">48</strong> <span style="color:#16a34a;font-size:0.8em;">(69%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">13</strong> <span style="color:#dc2626;font-size:0.8em;">(19%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">9</strong> <span style="color:#d97706;font-size:0.8em;">(13%)</span></td>
+<td style="text-align:right;">R$ 546,004</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,070,689</td>
+<td style="text-align:right;"><strong>R$ 7,800</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Agronegócio</strong></td>
+<td><strong>87</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">70</strong> <span style="color:#16a34a;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">11</strong> <span style="color:#dc2626;font-size:0.8em;">(13%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">6</strong> <span style="color:#d97706;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:right;">R$ 674,549</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,045,221</td>
+<td style="text-align:right;"><strong>R$ 7,753</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Saúde e Estética</strong></td>
+<td><strong>27</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">20</strong> <span style="color:#16a34a;font-size:0.8em;">(74%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:right;">R$ 203,217</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 818,472</td>
+<td style="text-align:right;"><strong>R$ 7,527</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Órgão Público</strong></td>
+<td><strong>100</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">73</strong> <span style="color:#16a34a;font-size:0.8em;">(73%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">19</strong> <span style="color:#dc2626;font-size:0.8em;">(19%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">8</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 747,275</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,131,072</td>
+<td style="text-align:right;"><strong>R$ 7,473</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Financeiro / Jurídico</strong></td>
+<td><strong>11</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(73%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:right;">R$ 77,627</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 295,769</td>
+<td style="text-align:right;"><strong>R$ 7,057</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Energia e Utilidade Pública</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">14</strong> <span style="color:#16a34a;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:right;">R$ 112,759</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 641,943</td>
+<td style="text-align:right;"><strong>R$ 6,633</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Alimentos e Bebidas</strong></td>
+<td><strong>24</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">17</strong> <span style="color:#16a34a;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:right;">R$ 157,321</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 739,250</td>
+<td style="text-align:right;"><strong>R$ 6,555</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Automotivo</strong></td>
+<td><strong>16</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">9</strong> <span style="color:#16a34a;font-size:0.8em;">(56%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">4</strong> <span style="color:#dc2626;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">3</strong> <span style="color:#d97706;font-size:0.8em;">(19%)</span></td>
+<td style="text-align:right;">R$ 102,979</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 433,900</td>
+<td style="text-align:right;"><strong>R$ 6,436</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">18d</span> · 2026-04-28</td>
+</tr>
+<tr class="good">
+<td><strong>Educação</strong></td>
+<td><strong>166</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">111</strong> <span style="color:#16a34a;font-size:0.8em;">(67%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">39</strong> <span style="color:#dc2626;font-size:0.8em;">(23%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">16</strong> <span style="color:#d97706;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:right;">R$ 1,038,572</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 6,252,899</td>
+<td style="text-align:right;"><strong>R$ 6,256</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Equipamentos Médicos</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(60%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(40%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 30,154</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 146,000</td>
+<td style="text-align:right;"><strong>R$ 6,031</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">44d</span> · 2026-04-02</td>
+</tr>
+<tr class="good">
+<td><strong>Serviços</strong></td>
+<td><strong>129</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">102</strong> <span style="color:#16a34a;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">20</strong> <span style="color:#dc2626;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">7</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 773,355</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,094,982</td>
+<td style="text-align:right;"><strong>R$ 5,995</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Varejo</strong></td>
+<td><strong>42</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">28</strong> <span style="color:#16a34a;font-size:0.8em;">(67%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 249,649</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 971,899</td>
+<td style="text-align:right;"><strong>R$ 5,944</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Outros</strong></td>
+<td><strong>328</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">165</strong> <span style="color:#16a34a;font-size:0.8em;">(50%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">119</strong> <span style="color:#dc2626;font-size:0.8em;">(36%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">44</strong> <span style="color:#d97706;font-size:0.8em;">(13%)</span></td>
+<td style="text-align:right;">R$ 1,766,160</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 6,780,145</td>
+<td style="text-align:right;"><strong>R$ 5,385</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="ok">
+<td><strong>Operadoras de Saúde</strong></td>
+<td><strong>27</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">16</strong> <span style="color:#16a34a;font-size:0.8em;">(59%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(26%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">4</strong> <span style="color:#d97706;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:right;">R$ 122,447</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 667,258</td>
+<td style="text-align:right;"><strong>R$ 4,535</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="ok">
+<td><strong>Construbusiness</strong></td>
+<td><strong>7</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(57%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">3</strong> <span style="color:#dc2626;font-size:0.8em;">(43%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 18,558</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 72,000</td>
+<td style="text-align:right;"><strong>R$ 2,651</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">18d</span> · 2026-04-28</td>
+</tr>
+<tr class="">
+<td><strong>(sem segmento)</strong></td>
+<td><strong>22,534</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1215</strong> <span style="color:#16a34a;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">21164</strong> <span style="color:#dc2626;font-size:0.8em;">(94%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">155</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 11,980,577</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 66,781,201</td>
+<td style="text-align:right;"><strong>R$ 532</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+</tbody></table>
+
+<h2>3. Formato do Evento</h2>
+<div class="section-intro">Aberto vs Fechado, com/sem ingresso. Define estrutura comercial e tícket.</div>
+<table>
+<thead><tr>
+<th>formato</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="ok">
+<td><strong>Aberto para o público em geral com venda de ingressos</strong></td>
+<td><strong>305</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">85</strong> <span style="color:#16a34a;font-size:0.8em;">(28%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">216</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">4</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 1,220,000</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 6,435,524</td>
+<td style="text-align:right;"><strong>R$ 4,000</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="ok">
+<td><strong>Aberto para o público em geral</strong></td>
+<td><strong>657</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">152</strong> <span style="color:#16a34a;font-size:0.8em;">(23%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">499</strong> <span style="color:#dc2626;font-size:0.8em;">(76%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">6</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 1,832,666</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 11,936,289</td>
+<td style="text-align:right;"><strong>R$ 2,789</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">9d</span> · 2026-05-07</td>
+</tr>
+<tr class="">
+<td><strong>Fechado para clientes ou colaboradores</strong></td>
+<td><strong>7,571</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1391</strong> <span style="color:#16a34a;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6096</strong> <span style="color:#dc2626;font-size:0.8em;">(81%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">84</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 13,804,937</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 62,158,955</td>
+<td style="text-align:right;"><strong>R$ 1,823</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>Fechado para cliente ou colaboradores com venda de ingressos</strong></td>
+<td><strong>107</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">24</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">82</strong> <span style="color:#dc2626;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 126,852</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 899,692</td>
+<td style="text-align:right;"><strong>R$ 1,186</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="bad">
+<td><strong>(sem formato)</strong></td>
+<td><strong>15,305</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">497</strong> <span style="color:#16a34a;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">14607</strong> <span style="color:#dc2626;font-size:0.8em;">(95%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">201</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 5,104,732</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 27,984,848</td>
+<td style="text-align:right;"><strong>R$ 334</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+</tbody></table>
+
+<h2>4. Cargo do Decisor</h2>
+<div class="section-intro">Quem decide. <strong>Insight</strong>: Analista converte mais (91%) que CEO (82%) — quando o analista chega, já tem aval do chefe.</div>
+<table>
+<thead><tr>
+<th>cargo_decisor</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>Auxiliar</strong></td>
+<td><strong>2</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 27,585</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 174,450</td>
+<td style="text-align:right;"><strong>R$ 13,792</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">58d</span> · 2026-03-19</td>
+</tr>
+<tr class="good">
+<td><strong>Analista</strong></td>
+<td><strong>223</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">202</strong> <span style="color:#16a34a;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">21</strong> <span style="color:#dc2626;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 2,511,851</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 9,951,983</td>
+<td style="text-align:right;"><strong>R$ 11,264</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Coordenador(a)/Supervisor(a)</strong></td>
+<td><strong>187</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">169</strong> <span style="color:#16a34a;font-size:0.8em;">(90%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">18</strong> <span style="color:#dc2626;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 1,980,095</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 8,774,919</td>
+<td style="text-align:right;"><strong>R$ 10,589</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">11d</span> · 2026-05-05</td>
+</tr>
+<tr class="good">
+<td><strong>Gerente</strong></td>
+<td><strong>293</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">271</strong> <span style="color:#16a34a;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">22</strong> <span style="color:#dc2626;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 2,859,443</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 14,520,919</td>
+<td style="text-align:right;"><strong>R$ 9,759</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Diretor(a)</strong></td>
+<td><strong>111</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">99</strong> <span style="color:#16a34a;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 1,079,184</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,778,773</td>
+<td style="text-align:right;"><strong>R$ 9,722</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>CEO/Presidente(a)</strong></td>
+<td><strong>33</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">27</strong> <span style="color:#16a34a;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 307,920</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,288,380</td>
+<td style="text-align:right;"><strong>R$ 9,331</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+<tr class="good">
+<td><strong>Assistente</strong></td>
+<td><strong>13</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">10</strong> <span style="color:#16a34a;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">3</strong> <span style="color:#dc2626;font-size:0.8em;">(23%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 119,102</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 579,500</td>
+<td style="text-align:right;"><strong>R$ 9,162</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">128d</span> · 2026-01-08</td>
+</tr>
+<tr class="good">
+<td><strong>Outro</strong></td>
+<td><strong>64</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">62</strong> <span style="color:#16a34a;font-size:0.8em;">(97%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 344,843</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,268,683</td>
+<td style="text-align:right;"><strong>R$ 5,388</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">22d</span> · 2026-04-24</td>
+</tr>
+<tr class="ok">
+<td><strong>Estagiário(a)</strong></td>
+<td><strong>1</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 3,080</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 15,000</td>
+<td style="text-align:right;"><strong>R$ 3,080</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">75d</span> · 2026-03-02</td>
+</tr>
+<tr class="">
+<td><strong>(sem cargo)</strong></td>
+<td><strong>23,018</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1306</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">21416</strong> <span style="color:#dc2626;font-size:0.8em;">(93%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">296</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 12,856,083</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 67,062,701</td>
+<td style="text-align:right;"><strong>R$ 559</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+</tbody></table>
+
+<h2>5. Setor / Área na Empresa</h2>
+<div class="section-intro">Qual área da empresa contratou.</div>
+<table>
+<thead><tr>
+<th>setor</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>Marketing</strong></td>
+<td><strong>249</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">239</strong> <span style="color:#16a34a;font-size:0.8em;">(96%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">10</strong> <span style="color:#dc2626;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 2,850,687</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 14,829,774</td>
+<td style="text-align:right;"><strong>R$ 11,449</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Diretoria</strong></td>
+<td><strong>478</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">470</strong> <span style="color:#16a34a;font-size:0.8em;">(98%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">8</strong> <span style="color:#dc2626;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 5,120,629</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 24,288,101</td>
+<td style="text-align:right;"><strong>R$ 10,713</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Eventos</strong></td>
+<td><strong>518</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">495</strong> <span style="color:#16a34a;font-size:0.8em;">(96%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">23</strong> <span style="color:#dc2626;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 5,446,097</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 27,227,586</td>
+<td style="text-align:right;"><strong>R$ 10,514</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">16d</span> · 2026-04-30</td>
+</tr>
+<tr class="good">
+<td><strong>RH</strong></td>
+<td><strong>123</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">118</strong> <span style="color:#16a34a;font-size:0.8em;">(96%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">5</strong> <span style="color:#dc2626;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 1,037,937</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 5,130,291</td>
+<td style="text-align:right;"><strong>R$ 8,439</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">5d</span> · 2026-05-11</td>
+</tr>
+<tr class="good">
+<td><strong>Administrativo</strong></td>
+<td><strong>342</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">314</strong> <span style="color:#16a34a;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">28</strong> <span style="color:#dc2626;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 2,877,027</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 14,624,794</td>
+<td style="text-align:right;"><strong>R$ 8,412</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+<tr class="good">
+<td><strong>Tecnologia</strong></td>
+<td><strong>30</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">29</strong> <span style="color:#16a34a;font-size:0.8em;">(97%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 221,303</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,050,046</td>
+<td style="text-align:right;"><strong>R$ 7,377</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Financeiro e Compras</strong></td>
+<td><strong>19</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">18</strong> <span style="color:#16a34a;font-size:0.8em;">(95%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 138,691</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 557,200</td>
+<td style="text-align:right;"><strong>R$ 7,300</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">33d</span> · 2026-04-13</td>
+</tr>
+<tr class="good">
+<td><strong>Outro</strong></td>
+<td><strong>85</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">79</strong> <span style="color:#16a34a;font-size:0.8em;">(93%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 566,283</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,014,150</td>
+<td style="text-align:right;"><strong>R$ 6,662</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">16d</span> · 2026-04-30</td>
+</tr>
+<tr class="good">
+<td><strong>Comercial</strong></td>
+<td><strong>19</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">18</strong> <span style="color:#16a34a;font-size:0.8em;">(95%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 109,690</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 716,755</td>
+<td style="text-align:right;"><strong>R$ 5,773</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">17d</span> · 2026-04-29</td>
+</tr>
+<tr class="bad">
+<td><strong>(sem setor)</strong></td>
+<td><strong>22,082</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">369</strong> <span style="color:#16a34a;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">21417</strong> <span style="color:#dc2626;font-size:0.8em;">(97%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">296</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 3,720,843</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 17,976,610</td>
+<td style="text-align:right;"><strong>R$ 168</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+</tbody></table>
+
+<h2>6. Budget Declarado</h2>
+<div class="section-intro">Faixa de budget declarada pelo lead. 65% não declaram — esses convertem muito menos.</div>
+<table>
+<thead><tr>
+<th>budget</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="ok">
+<td><strong>+ de 80k</strong></td>
+<td><strong>347</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">78</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">251</strong> <span style="color:#dc2626;font-size:0.8em;">(72%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">18</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 1,229,082</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 7,999,522</td>
+<td style="text-align:right;"><strong>R$ 3,542</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="ok">
+<td><strong>61k à 80k</strong></td>
+<td><strong>226</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">45</strong> <span style="color:#16a34a;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">178</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">3</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 605,834</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,110,416</td>
+<td style="text-align:right;"><strong>R$ 2,681</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="ok">
+<td><strong>51k à 60k</strong></td>
+<td><strong>95</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">19</strong> <span style="color:#16a34a;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">66</strong> <span style="color:#dc2626;font-size:0.8em;">(69%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">10</strong> <span style="color:#d97706;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:right;">R$ 235,446</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 974,000</td>
+<td style="text-align:right;"><strong>R$ 2,478</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="ok">
+<td><strong>31k à 40k</strong></td>
+<td><strong>189</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">36</strong> <span style="color:#16a34a;font-size:0.8em;">(19%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">134</strong> <span style="color:#dc2626;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">19</strong> <span style="color:#d97706;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:right;">R$ 388,176</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,635,978</td>
+<td style="text-align:right;"><strong>R$ 2,054</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>41k à 60k</strong></td>
+<td><strong>630</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">105</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">489</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">36</strong> <span style="color:#d97706;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:right;">R$ 1,227,542</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 5,786,124</td>
+<td style="text-align:right;"><strong>R$ 1,948</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="">
+<td><strong>Não informado</strong></td>
+<td><strong>3,346</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">547</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2714</strong> <span style="color:#dc2626;font-size:0.8em;">(81%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">85</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 5,910,634</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 26,149,722</td>
+<td style="text-align:right;"><strong>R$ 1,766</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>21k à 40k</strong></td>
+<td><strong>1,281</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">206</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1043</strong> <span style="color:#dc2626;font-size:0.8em;">(81%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">32</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 2,139,928</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 8,041,108</td>
+<td style="text-align:right;"><strong>R$ 1,671</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>71k à 80k</strong></td>
+<td><strong>68</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">53</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">7</strong> <span style="color:#d97706;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:right;">R$ 100,929</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 616,000</td>
+<td style="text-align:right;"><strong>R$ 1,484</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="">
+<td><strong>11k à 20k</strong></td>
+<td><strong>1,567</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">168</strong> <span style="color:#16a34a;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1353</strong> <span style="color:#dc2626;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">46</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 1,058,206</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,717,469</td>
+<td style="text-align:right;"><strong>R$ 675</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>Até 3k</strong></td>
+<td><strong>14</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(43%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(50%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:right;">R$ 8,352</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 44,000</td>
+<td style="text-align:right;"><strong>R$ 597</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="">
+<td><strong>(sem budget)</strong></td>
+<td><strong>15,595</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">877</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">14711</strong> <span style="color:#dc2626;font-size:0.8em;">(94%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">7</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 8,957,601</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 50,750,887</td>
+<td style="text-align:right;"><strong>R$ 574</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">17d</span> · 2026-04-29</td>
+</tr>
+<tr class="bad">
+<td><strong>6k à 10k</strong></td>
+<td><strong>492</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">46</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">421</strong> <span style="color:#dc2626;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">25</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 202,386</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 548,002</td>
+<td style="text-align:right;"><strong>R$ 411</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="bad">
+<td><strong>Até 5k</strong></td>
+<td><strong>89</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">74</strong> <span style="color:#dc2626;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">7</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 25,072</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 42,080</td>
+<td style="text-align:right;"><strong>R$ 282</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>Até 1k</strong></td>
+<td><strong>4</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">0</strong> <span style="color:#16a34a;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">4</strong> <span style="color:#dc2626;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 0</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 0</td>
+<td style="text-align:right;"><strong>R$ 0</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">46d</span> · 2026-03-31</td>
+</tr>
+<tr class="">
+<td><strong>Gratuito</strong></td>
+<td><strong>2</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">0</strong> <span style="color:#16a34a;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 0</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 0</td>
+<td style="text-align:right;"><strong>R$ 0</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+</tbody></table>
+
+<h2>7. Original Traffic Source</h2>
+<div class="section-intro"><strong>Achado contraintuitivo</strong>: PAID_SOCIAL (Meta) tem o pior R$/lead (R$ 250). SOCIAL_MEDIA orgânico tem o melhor (R$ 1.960). OFFLINE = 72% do volume.</div>
+<table>
+<thead><tr>
+<th>hs_analytics_source</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="">
+<td><strong>SOCIAL_MEDIA</strong></td>
+<td><strong>355</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">54</strong> <span style="color:#16a34a;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">298</strong> <span style="color:#dc2626;font-size:0.8em;">(84%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">3</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 695,706</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,122,852</td>
+<td style="text-align:right;"><strong>R$ 1,960</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>OFFLINE</strong></td>
+<td><strong>17,328</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1742</strong> <span style="color:#16a34a;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">15440</strong> <span style="color:#dc2626;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">146</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 17,899,471</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 92,490,607</td>
+<td style="text-align:right;"><strong>R$ 1,033</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>OTHER_CAMPAIGNS</strong></td>
+<td><strong>145</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">10</strong> <span style="color:#16a34a;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">133</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 117,947</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 452,300</td>
+<td style="text-align:right;"><strong>R$ 813</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">9d</span> · 2026-05-07</td>
+</tr>
+<tr class="">
+<td><strong>ORGANIC_SEARCH</strong></td>
+<td><strong>462</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">33</strong> <span style="color:#16a34a;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">415</strong> <span style="color:#dc2626;font-size:0.8em;">(90%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">14</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 345,998</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,558,498</td>
+<td style="text-align:right;"><strong>R$ 749</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="">
+<td><strong>REFERRALS</strong></td>
+<td><strong>254</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">14</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">234</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">6</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 189,840</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 473,086</td>
+<td style="text-align:right;"><strong>R$ 747</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="">
+<td><strong>AI_REFERRALS</strong></td>
+<td><strong>29</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">28</strong> <span style="color:#dc2626;font-size:0.8em;">(97%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 17,100</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 39,000</td>
+<td style="text-align:right;"><strong>R$ 590</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">96d</span> · 2026-02-09</td>
+</tr>
+<tr class="">
+<td><strong>PAID_SEARCH</strong></td>
+<td><strong>3,300</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">179</strong> <span style="color:#16a34a;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">3026</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">95</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 1,876,232</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 7,637,230</td>
+<td style="text-align:right;"><strong>R$ 569</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>DIRECT_TRAFFIC</strong></td>
+<td><strong>1,448</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">87</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1337</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">24</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 800,081</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,478,736</td>
+<td style="text-align:right;"><strong>R$ 553</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="bad">
+<td><strong>PAID_SOCIAL</strong></td>
+<td><strong>448</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">14</strong> <span style="color:#16a34a;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">429</strong> <span style="color:#dc2626;font-size:0.8em;">(96%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">5</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 112,410</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 623,999</td>
+<td style="text-align:right;"><strong>R$ 251</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="bad">
+<td><strong>(sem source)</strong></td>
+<td><strong>176</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">15</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">160</strong> <span style="color:#dc2626;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 34,402</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 539,000</td>
+<td style="text-align:right;"><strong>R$ 195</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+</tbody></table>
+
+<h2>8. Por Campanha (utm_campaign)</h2>
+<div class="section-intro">Campanhas que trazem leads B2B.</div>
+<table>
+<thead><tr>
+<th>utm_campaign</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="ok">
+<td><strong>cadastro-manual-core</strong></td>
+<td><strong>33</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">17</strong> <span style="color:#16a34a;font-size:0.8em;">(52%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">16</strong> <span style="color:#dc2626;font-size:0.8em;">(48%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 109,600</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 763,775</td>
+<td style="text-align:right;"><strong>R$ 3,321</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="ok">
+<td><strong>sergiozimerman-lead</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 24,625</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 75,000</td>
+<td style="text-align:right;"><strong>R$ 3,078</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="ok">
+<td><strong>profissionais_BR_cortella</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 25,386</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 180,000</td>
+<td style="text-align:right;"><strong>R$ 2,821</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">222d</span> · 2025-10-06</td>
+</tr>
+<tr class="ok">
+<td><strong>profissionais_cortella_nova</strong></td>
+<td><strong>71</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">12</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">53</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">6</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 154,083</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 792,500</td>
+<td style="text-align:right;"><strong>R$ 2,170</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">11d</span> · 2026-05-05</td>
+</tr>
+<tr class="ok">
+<td><strong>bio-walterlongo-typeform</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(22%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(78%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 19,000</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 70,000</td>
+<td style="text-align:right;"><strong>R$ 2,111</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>institucional_exata</strong></td>
+<td><strong>163</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">24</strong> <span style="color:#16a34a;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">134</strong> <span style="color:#dc2626;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">5</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 318,944</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,271,000</td>
+<td style="text-align:right;"><strong>R$ 1,957</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="">
+<td><strong>gabrielcarneiro-lead</strong></td>
+<td><strong>26</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(27%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">17</strong> <span style="color:#dc2626;font-size:0.8em;">(65%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 49,796</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 157,000</td>
+<td style="text-align:right;"><strong>R$ 1,915</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">9d</span> · 2026-05-07</td>
+</tr>
+<tr class="">
+<td><strong>Leads Nativo | Dia do Trabalhador</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">5</strong> <span style="color:#dc2626;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 10,470</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 62,000</td>
+<td style="text-align:right;"><strong>R$ 1,745</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_luizfelipeponde</strong></td>
+<td><strong>13</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(23%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">10</strong> <span style="color:#dc2626;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 22,174</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 199,000</td>
+<td style="text-align:right;"><strong>R$ 1,706</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">109d</span> · 2026-01-27</td>
+</tr>
+<tr class="">
+<td><strong>(sem utm_campaign)</strong></td>
+<td><strong>8,890</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1420</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7324</strong> <span style="color:#dc2626;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">146</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 14,705,131</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 74,645,695</td>
+<td style="text-align:right;"><strong>R$ 1,654</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>bio-gabrielcarneiro-typeform</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(88%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 12,800</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 26,000</td>
+<td style="text-align:right;"><strong>R$ 1,600</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>pagina_inicial</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">9</strong> <span style="color:#dc2626;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 18,700</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 52,000</td>
+<td style="text-align:right;"><strong>R$ 1,558</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>monicamagalhaes-lead</strong></td>
+<td><strong>32</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">27</strong> <span style="color:#dc2626;font-size:0.8em;">(84%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 47,633</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 167,000</td>
+<td style="text-align:right;"><strong>R$ 1,489</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">194d</span> · 2025-11-03</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_sa_antiga,profissionais_sa_antiga</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">8</strong> <span style="color:#dc2626;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 12,000</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 30,000</td>
+<td style="text-align:right;"><strong>R$ 1,333</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>pagina_links</strong></td>
+<td><strong>28</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(21%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">22</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 33,660</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 155,000</td>
+<td style="text-align:right;"><strong>R$ 1,202</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>site-geral-palestrantes-e-especialistas</strong></td>
+<td><strong>53</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">48</strong> <span style="color:#dc2626;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 63,407</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 296,300</td>
+<td style="text-align:right;"><strong>R$ 1,196</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">68d</span> · 2026-03-09</td>
+</tr>
+<tr class="">
+<td><strong>instagram-nelson</strong></td>
+<td><strong>37</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">31</strong> <span style="color:#dc2626;font-size:0.8em;">(84%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 43,720</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 258,000</td>
+<td style="text-align:right;"><strong>R$ 1,182</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_nelsonfreitas</strong></td>
+<td><strong>19</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">17</strong> <span style="color:#dc2626;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 21,200</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 108,000</td>
+<td style="text-align:right;"><strong>R$ 1,116</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">123d</span> · 2026-01-13</td>
+</tr>
+<tr class="">
+<td><strong>nelsonfreitas-lead</strong></td>
+<td><strong>24</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">22</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 25,511</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 140,000</td>
+<td style="text-align:right;"><strong>R$ 1,063</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">192d</span> · 2025-11-05</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_moniqueevelle</strong></td>
+<td><strong>13</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">12</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 13,185</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 141,450</td>
+<td style="text-align:right;"><strong>R$ 1,014</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">24d</span> · 2026-04-22</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_ricardobasaglia</strong></td>
+<td><strong>36</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">33</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 32,124</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 129,600</td>
+<td style="text-align:right;"><strong>R$ 892</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">106d</span> · 2026-01-30</td>
+</tr>
+<tr class="">
+<td><strong>dadoschneider-lead</strong></td>
+<td><strong>293</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">26</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">267</strong> <span style="color:#dc2626;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 258,557</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,043,852</td>
+<td style="text-align:right;"><strong>R$ 882</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">50d</span> · 2026-03-27</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_br_cortella</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">4</strong> <span style="color:#dc2626;font-size:0.8em;">(67%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:right;">R$ 4,743</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 62,000</td>
+<td style="text-align:right;"><strong>R$ 790</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">50d</span> · 2026-03-27</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_gabrielcarneiro</strong></td>
+<td><strong>26</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">23</strong> <span style="color:#dc2626;font-size:0.8em;">(88%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:right;">R$ 19,766</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 65,000</td>
+<td style="text-align:right;"><strong>R$ 760</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">113d</span> · 2026-01-23</td>
+</tr>
+<tr class="">
+<td><strong>pmax</strong></td>
+<td><strong>2,966</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">190</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2734</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">42</strong> <span style="color:#d97706;font-size:0.8em;">(1%)</span></td>
+<td style="text-align:right;">R$ 2,234,135</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 9,078,436</td>
+<td style="text-align:right;"><strong>R$ 753</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="">
+<td><strong>institucional</strong></td>
+<td><strong>53</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">2</strong> <span style="color:#16a34a;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">51</strong> <span style="color:#dc2626;font-size:0.8em;">(96%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 38,549</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 141,000</td>
+<td style="text-align:right;"><strong>R$ 727</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">32d</span> · 2026-04-14</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_rufino</strong></td>
+<td><strong>120</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">109</strong> <span style="color:#dc2626;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">3</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 85,207</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 391,063</td>
+<td style="text-align:right;"><strong>R$ 710</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+<tr class="">
+<td><strong>search_institucional</strong></td>
+<td><strong>22</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1</strong> <span style="color:#16a34a;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">21</strong> <span style="color:#dc2626;font-size:0.8em;">(95%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 15,500</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 45,000</td>
+<td style="text-align:right;"><strong>R$ 705</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="">
+<td><strong>profissionais_dado</strong></td>
+<td><strong>91</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">83</strong> <span style="color:#dc2626;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 62,765</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 278,800</td>
+<td style="text-align:right;"><strong>R$ 690</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">22d</span> · 2026-04-24</td>
+</tr>
+<tr class="">
+<td><strong>ricardobasaglia-lead</strong></td>
+<td><strong>38</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">34</strong> <span style="color:#dc2626;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 25,080</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 168,000</td>
+<td style="text-align:right;"><strong>R$ 660</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">310d</span> · 2025-07-10</td>
+</tr>
+</tbody></table>
+
+<h2>9. Por Cidade do Evento</h2>
+<div class="section-intro">Concentração geográfica das vendas.</div>
+<table>
+<thead><tr>
+<th>cidade</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>Porto Velho/RO</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(62%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:right;">R$ 230,095</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,169,000</td>
+<td style="text-align:right;"><strong>R$ 28,762</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">30d</span> · 2026-04-16</td>
+</tr>
+<tr class="good">
+<td><strong>Ribeirão Preto/SP</strong></td>
+<td><strong>23</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">20</strong> <span style="color:#16a34a;font-size:0.8em;">(87%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(4%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:right;">R$ 413,642</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,009,500</td>
+<td style="text-align:right;"><strong>R$ 17,984</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Campo Mourão/PR</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">3</strong> <span style="color:#16a34a;font-size:0.8em;">(60%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(40%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 77,000</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 73,000</td>
+<td style="text-align:right;"><strong>R$ 15,400</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">37d</span> · 2026-04-09</td>
+</tr>
+<tr class="good">
+<td><strong>Belém/PA</strong></td>
+<td><strong>7</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(71%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(29%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 103,651</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 447,752</td>
+<td style="text-align:right;"><strong>R$ 14,807</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+<tr class="good">
+<td><strong>Rio Verde/GO</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 67,721</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 204,500</td>
+<td style="text-align:right;"><strong>R$ 13,544</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">60d</span> · 2026-03-17</td>
+</tr>
+<tr class="good">
+<td><strong>Araxá/MG</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">4</strong> <span style="color:#16a34a;font-size:0.8em;">(80%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(20%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 63,600</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 210,500</td>
+<td style="text-align:right;"><strong>R$ 12,720</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">362d</span> · 2025-05-19</td>
+</tr>
+<tr class="good">
+<td><strong>Uberlândia/MG</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">11</strong> <span style="color:#16a34a;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 151,692</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 859,680</td>
+<td style="text-align:right;"><strong>R$ 12,641</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">180d</span> · 2025-11-17</td>
+</tr>
+<tr class="good">
+<td><strong>Mogi das Cruzes/SP</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(88%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 97,450</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 427,000</td>
+<td style="text-align:right;"><strong>R$ 12,181</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+<tr class="good">
+<td><strong>Maringá/PR</strong></td>
+<td><strong>20</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">13</strong> <span style="color:#16a34a;font-size:0.8em;">(65%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">7</strong> <span style="color:#dc2626;font-size:0.8em;">(35%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 234,096</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 984,640</td>
+<td style="text-align:right;"><strong>R$ 11,705</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">57d</span> · 2026-03-20</td>
+</tr>
+<tr class="good">
+<td><strong>Embu das Artes/SP</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 68,885</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 283,000</td>
+<td style="text-align:right;"><strong>R$ 11,481</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">267d</span> · 2025-08-22</td>
+</tr>
+<tr class="good">
+<td><strong>Barueri/SP</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 67,469</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 416,250</td>
+<td style="text-align:right;"><strong>R$ 11,245</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">234d</span> · 2025-09-24</td>
+</tr>
+<tr class="good">
+<td><strong>Recife/PE</strong></td>
+<td><strong>22</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">20</strong> <span style="color:#16a34a;font-size:0.8em;">(91%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 235,724</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,127,170</td>
+<td style="text-align:right;"><strong>R$ 10,715</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="good">
+<td><strong>Pelotas/RS</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 93,667</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 293,080</td>
+<td style="text-align:right;"><strong>R$ 10,407</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="good">
+<td><strong>Mangaratiba/RJ</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 51,999</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 286,200</td>
+<td style="text-align:right;"><strong>R$ 10,400</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">47d</span> · 2026-03-30</td>
+</tr>
+<tr class="good">
+<td><strong>Chapecó/SC</strong></td>
+<td><strong>21</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">18</strong> <span style="color:#16a34a;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:right;">R$ 213,801</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 747,600</td>
+<td style="text-align:right;"><strong>R$ 10,181</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">19d</span> · 2026-04-27</td>
+</tr>
+<tr class="good">
+<td><strong>Alexânia/GO</strong></td>
+<td><strong>7</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(14%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 69,515</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 507,350</td>
+<td style="text-align:right;"><strong>R$ 9,931</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">87d</span> · 2026-02-18</td>
+</tr>
+<tr class="good">
+<td><strong>Maceió/AL</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(88%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 79,296</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 412,850</td>
+<td style="text-align:right;"><strong>R$ 9,912</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">47d</span> · 2026-03-30</td>
+</tr>
+<tr class="good">
+<td><strong>Cuiabá/MT</strong></td>
+<td><strong>32</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">26</strong> <span style="color:#16a34a;font-size:0.8em;">(81%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">5</strong> <span style="color:#dc2626;font-size:0.8em;">(16%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(3%)</span></td>
+<td style="text-align:right;">R$ 313,302</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,551,300</td>
+<td style="text-align:right;"><strong>R$ 9,791</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">10d</span> · 2026-05-06</td>
+</tr>
+<tr class="good">
+<td><strong>João Pessoa/PB</strong></td>
+<td><strong>6</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 58,486</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 284,000</td>
+<td style="text-align:right;"><strong>R$ 9,748</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="good">
+<td><strong>Campinas/SP</strong></td>
+<td><strong>44</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">39</strong> <span style="color:#16a34a;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(5%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">3</strong> <span style="color:#d97706;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:right;">R$ 428,112</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,769,900</td>
+<td style="text-align:right;"><strong>R$ 9,730</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">12d</span> · 2026-05-04</td>
+</tr>
+<tr class="good">
+<td><strong>Brasília/DF</strong></td>
+<td><strong>111</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">85</strong> <span style="color:#16a34a;font-size:0.8em;">(77%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">17</strong> <span style="color:#dc2626;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">9</strong> <span style="color:#d97706;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:right;">R$ 1,056,851</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 5,038,199</td>
+<td style="text-align:right;"><strong>R$ 9,521</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">5d</span> · 2026-05-11</td>
+</tr>
+<tr class="good">
+<td><strong>Canoas/RS</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">6</strong> <span style="color:#16a34a;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 73,698</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 339,500</td>
+<td style="text-align:right;"><strong>R$ 9,212</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">40d</span> · 2026-04-06</td>
+</tr>
+<tr class="good">
+<td><strong>Santa Rosa/RS</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">11</strong> <span style="color:#16a34a;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 109,745</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 378,000</td>
+<td style="text-align:right;"><strong>R$ 9,145</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">3d</span> · 2026-05-13</td>
+</tr>
+<tr class="good">
+<td><strong>Vilhena/RO</strong></td>
+<td><strong>5</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">5</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 45,050</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 128,000</td>
+<td style="text-align:right;"><strong>R$ 9,010</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">117d</span> · 2026-01-19</td>
+</tr>
+<tr class="good">
+<td><strong>São José dos Campos/SP</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">10</strong> <span style="color:#16a34a;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 107,400</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 617,000</td>
+<td style="text-align:right;"><strong>R$ 8,950</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">11d</span> · 2026-05-05</td>
+</tr>
+<tr class="good">
+<td><strong>Bento Gonçalves/RS</strong></td>
+<td><strong>17</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">14</strong> <span style="color:#16a34a;font-size:0.8em;">(82%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">2</strong> <span style="color:#dc2626;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:right;">R$ 151,835</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 493,290</td>
+<td style="text-align:right;"><strong>R$ 8,931</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">38d</span> · 2026-04-08</td>
+</tr>
+<tr class="good">
+<td><strong>Atibaia/SP</strong></td>
+<td><strong>35</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">29</strong> <span style="color:#16a34a;font-size:0.8em;">(83%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">6</strong> <span style="color:#dc2626;font-size:0.8em;">(17%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 310,539</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,491,710</td>
+<td style="text-align:right;"><strong>R$ 8,873</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">8d</span> · 2026-05-08</td>
+</tr>
+<tr class="good">
+<td><strong>Blumenau/SC</strong></td>
+<td><strong>12</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">9</strong> <span style="color:#16a34a;font-size:0.8em;">(75%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">3</strong> <span style="color:#dc2626;font-size:0.8em;">(25%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 106,202</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 483,000</td>
+<td style="text-align:right;"><strong>R$ 8,850</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">31d</span> · 2026-04-15</td>
+</tr>
+<tr class="good">
+<td><strong>Itupeva/SP</strong></td>
+<td><strong>9</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">8</strong> <span style="color:#16a34a;font-size:0.8em;">(89%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(11%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 76,518</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 329,600</td>
+<td style="text-align:right;"><strong>R$ 8,502</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">170d</span> · 2025-11-27</td>
+</tr>
+<tr class="good">
+<td><strong>Vitória/ES</strong></td>
+<td><strong>29</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">22</strong> <span style="color:#16a34a;font-size:0.8em;">(76%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">3</strong> <span style="color:#dc2626;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">4</strong> <span style="color:#d97706;font-size:0.8em;">(14%)</span></td>
+<td style="text-align:right;">R$ 237,725</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 1,049,000</td>
+<td style="text-align:right;"><strong>R$ 8,197</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">4d</span> · 2026-05-12</td>
+</tr>
+</tbody></table>
+
+<h2>10. Análise Temporal</h2>
+<div class="section-intro">Performance mês a mês. ⚠️ Maio/25 tem 15K deals (import em massa) — distorce médias.</div>
+<table>
+<thead><tr>
+<th>month</th>
+<th>Leads</th>
+<th style="background:#16a34a;">Ganho</th>
+<th style="background:#dc2626;">Perdido</th>
+<th style="background:#f59e0b;">Em aberto</th>
+<th>Comissão PSA</th>
+<th>Valor Contratos</th>
+<th>R$/lead</th>
+<th>Último lead</th>
+</tr></thead><tbody>
+<tr class="good">
+<td><strong>2025-02</strong></td>
+<td><strong>15</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">15</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 368,950</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,468,000</td>
+<td style="text-align:right;"><strong>R$ 24,597</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">442d</span> · 2025-02-28</td>
+</tr>
+<tr class="good">
+<td><strong>2025-03</strong></td>
+<td><strong>14</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">14</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 270,372</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 679,000</td>
+<td style="text-align:right;"><strong>R$ 19,312</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">414d</span> · 2025-03-28</td>
+</tr>
+<tr class="good">
+<td><strong>2025-01</strong></td>
+<td><strong>74</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">74</strong> <span style="color:#16a34a;font-size:0.8em;">(100%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">0</strong> <span style="color:#dc2626;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 910,338</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,044,817</td>
+<td style="text-align:right;"><strong>R$ 12,302</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">473d</span> · 2025-01-28</td>
+</tr>
+<tr class="good">
+<td><strong>2025-04</strong></td>
+<td><strong>8</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">7</strong> <span style="color:#16a34a;font-size:0.8em;">(88%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1</strong> <span style="color:#dc2626;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 90,358</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 5,333,579</td>
+<td style="text-align:right;"><strong>R$ 11,295</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">381d</span> · 2025-04-30</td>
+</tr>
+<tr class="ok">
+<td><strong>2026-05</strong></td>
+<td><strong>192</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">65</strong> <span style="color:#16a34a;font-size:0.8em;">(34%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">29</strong> <span style="color:#dc2626;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">98</strong> <span style="color:#d97706;font-size:0.8em;">(51%)</span></td>
+<td style="text-align:right;">R$ 717,777</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 346,900</td>
+<td style="text-align:right;"><strong>R$ 3,738</strong></td>
+<td style="font-size:0.85em;"><span style="color:#16a34a;font-weight:600;">2d</span> · 2026-05-14</td>
+</tr>
+<tr class="ok">
+<td><strong>2026-02</strong></td>
+<td><strong>396</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">71</strong> <span style="color:#16a34a;font-size:0.8em;">(18%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">319</strong> <span style="color:#dc2626;font-size:0.8em;">(81%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">6</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 812,579</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,382,499</td>
+<td style="text-align:right;"><strong>R$ 2,052</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">78d</span> · 2026-02-27</td>
+</tr>
+<tr class="">
+<td><strong>2026-03</strong></td>
+<td><strong>542</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">67</strong> <span style="color:#16a34a;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">427</strong> <span style="color:#dc2626;font-size:0.8em;">(79%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">48</strong> <span style="color:#d97706;font-size:0.8em;">(9%)</span></td>
+<td style="text-align:right;">R$ 816,751</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,177,287</td>
+<td style="text-align:right;"><strong>R$ 1,507</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">46d</span> · 2026-03-31</td>
+</tr>
+<tr class="">
+<td><strong>2026-01</strong></td>
+<td><strong>472</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">59</strong> <span style="color:#16a34a;font-size:0.8em;">(12%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">404</strong> <span style="color:#dc2626;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">9</strong> <span style="color:#d97706;font-size:0.8em;">(2%)</span></td>
+<td style="text-align:right;">R$ 704,888</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,459,838</td>
+<td style="text-align:right;"><strong>R$ 1,493</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">106d</span> · 2026-01-30</td>
+</tr>
+<tr class="">
+<td><strong>2025-06</strong></td>
+<td><strong>611</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">84</strong> <span style="color:#16a34a;font-size:0.8em;">(14%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">526</strong> <span style="color:#dc2626;font-size:0.8em;">(86%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 859,683</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,065,728</td>
+<td style="text-align:right;"><strong>R$ 1,407</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">320d</span> · 2025-06-30</td>
+</tr>
+<tr class="">
+<td><strong>2026-04</strong></td>
+<td><strong>497</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">76</strong> <span style="color:#16a34a;font-size:0.8em;">(15%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">294</strong> <span style="color:#dc2626;font-size:0.8em;">(59%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">127</strong> <span style="color:#d97706;font-size:0.8em;">(26%)</span></td>
+<td style="text-align:right;">R$ 684,824</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,338,493</td>
+<td style="text-align:right;"><strong>R$ 1,378</strong></td>
+<td style="font-size:0.85em;"><span style="color:#f59e0b;">16d</span> · 2026-04-30</td>
+</tr>
+<tr class="">
+<td><strong>2025-11</strong></td>
+<td><strong>832</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">85</strong> <span style="color:#16a34a;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">747</strong> <span style="color:#dc2626;font-size:0.8em;">(90%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 869,990</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,188,232</td>
+<td style="text-align:right;"><strong>R$ 1,046</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">167d</span> · 2025-11-30</td>
+</tr>
+<tr class="">
+<td><strong>2025-12</strong></td>
+<td><strong>548</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">41</strong> <span style="color:#16a34a;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">507</strong> <span style="color:#dc2626;font-size:0.8em;">(93%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 546,644</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 2,138,618</td>
+<td style="text-align:right;"><strong>R$ 998</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">137d</span> · 2025-12-30</td>
+</tr>
+<tr class="">
+<td><strong>2025-07</strong></td>
+<td><strong>1,041</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">88</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">953</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 965,834</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,176,347</td>
+<td style="text-align:right;"><strong>R$ 928</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">288d</span> · 2025-07-31</td>
+</tr>
+<tr class="">
+<td><strong>2025-10</strong></td>
+<td><strong>948</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">94</strong> <span style="color:#16a34a;font-size:0.8em;">(10%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">852</strong> <span style="color:#dc2626;font-size:0.8em;">(90%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">2</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 794,466</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 4,132,557</td>
+<td style="text-align:right;"><strong>R$ 838</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">197d</span> · 2025-10-31</td>
+</tr>
+<tr class="">
+<td><strong>2025-05</strong></td>
+<td><strong>15,561</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">1157</strong> <span style="color:#16a34a;font-size:0.8em;">(7%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">14400</strong> <span style="color:#dc2626;font-size:0.8em;">(93%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">4</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 11,259,009</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 58,616,545</td>
+<td style="text-align:right;"><strong>R$ 724</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">351d</span> · 2025-05-30</td>
+</tr>
+<tr class="">
+<td><strong>2025-08</strong></td>
+<td><strong>1,072</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">82</strong> <span style="color:#16a34a;font-size:0.8em;">(8%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">990</strong> <span style="color:#dc2626;font-size:0.8em;">(92%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">0</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 708,557</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,601,780</td>
+<td style="text-align:right;"><strong>R$ 661</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">258d</span> · 2025-08-31</td>
+</tr>
+<tr class="">
+<td><strong>2025-09</strong></td>
+<td><strong>1,122</strong></td>
+<td style="text-align:center;"><strong style="color:#16a34a;">70</strong> <span style="color:#16a34a;font-size:0.8em;">(6%)</span></td>
+<td style="text-align:center;"><strong style="color:#dc2626;">1051</strong> <span style="color:#dc2626;font-size:0.8em;">(94%)</span></td>
+<td style="text-align:center;"><strong style="color:#d97706;">1</strong> <span style="color:#d97706;font-size:0.8em;">(0%)</span></td>
+<td style="text-align:right;">R$ 708,167</td>
+<td style="text-align:right;color:#6b7280;font-size:0.9em;">R$ 3,265,091</td>
+<td style="text-align:right;"><strong>R$ 631</strong></td>
+<td style="font-size:0.85em;"><span style="color:#dc2626;">227d</span> · 2025-09-30</td>
+</tr>
+</tbody></table>
+
+<div class="footnote">
+<p><strong>Metodologia B2B</strong>:</p>
+<ul>
+<li>Pipeline: Funil de Vendas B2B (<code>default</code>)</li>
+<li>WON stages: <code>1076664462</code> (Negócio fechado), <code>1076664460</code> (Ganho/Contrato), <code>closedwon</code> (Proposta enviada)</li>
+<li>LOST: <code>1076664461</code> (Perdido)</li>
+<li>Palestrante via cascata: <code>palestrante_principal__ganho_</code> → <code>palestrante_principal</code> → <code>palestrante_de_interesse_</code></li>
+<li>R$/lead usa <code>amount</code> (comissão PSA). "Valor Contratos" usa <code>valor_total_do_contrato_bruto_ganho_</code>.</li>
+</ul>
+</div>
+
+</body></html>
