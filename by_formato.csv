@@ -1,6 +1,6 @@
 formato,leads,wins,lost,win_rate_pct,revenue_comissao_psa,valor_total_contrato,revenue_per_lead,last_lead_date,days_since_last_lead
-Aberto para o público em geral com venda de ingressos,307,86,217,28.0,1221799.9,6457523.69,3979.8,2026-05-15,5
+Aberto para o público em geral com venda de ingressos,308,86,217,27.9,1221799.9,6457523.69,3966.88,2026-05-19,1
 Aberto para o público em geral,659,153,502,23.2,1837616.32,11993510.61,2788.49,2026-05-15,5
-Fechado para clientes ou colaboradores,7597,1404,6114,18.5,13920895.53,62412114.26,1832.42,2026-05-19,1
-Fechado para cliente ou colaboradores com venda de ingressos,107,24,82,22.4,126852.12,899691.77,1185.53,2026-05-13,7
-(sem formato),15334,495,14637,3.2,5107360.7,27984848.29,333.07,2026-05-19,1
+Fechado para clientes ou colaboradores,7599,1404,6118,18.5,13919545.53,62412114.26,1831.76,2026-05-20,0
+Fechado para cliente ou colaboradores com venda de ingressos,108,25,82,23.1,126852.12,899691.77,1174.56,2026-05-20,0
+(sem formato),15365,501,14638,3.3,5141020.7,27984848.29,334.59,2026-05-20,0
